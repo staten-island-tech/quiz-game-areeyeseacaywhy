@@ -2,7 +2,7 @@
   "name": "quiz-game-areeyeseacaywhy",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "dependencies": {},
   "devDependencies": {
     "@parcel/transformer-sass": "^2.0.0-beta.2",

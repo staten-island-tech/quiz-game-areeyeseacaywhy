@@ -1,15 +1,11 @@
 const questions = [
   {
-    question: "What is 2+2",
-    answer: [
-      { Text: "4", correct: true },
-      { Text: "11", correct: false },
-    ],
-  },
-];
+    question: 'What is 1+1',
+    choices: [
+      { Text: '2', correct: true},
+      { text: '3', correct: false}
+    ]
+  }
+]
 
-//array for the questions
-
-//object
-
-//let score;
+export {questions};

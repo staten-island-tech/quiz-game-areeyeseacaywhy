@@ -1,19 +1,36 @@
 console.log("Connected");
 
-import { questions } from "./questions";
+// import {questions} from "./questions"
 
-const startButton = document.getElementsById("start-btn");
-const questionContainerElement = document.getElementById("question-container");
+const startButton = document.getElementById('start-btn')
+const containerElement = document.getElementById('container')
+const questionContainerElement = document.getElementById('questionContainer')
+const questionElement = document.getElementById('question')
 
-startButton.addEventListener("click", startGame);
+let currentQuestionsIndex
 
-function startQuiz() {
-  console.log("Quiz go");
-  startButton.classlist.add("hide");
-  questionContainerElement.classList.remove("hide");
-  nextQuestion();
+startButton.addEventListener('click', start)
+
+function start() {
+  console.log('started')
+  startButton.classList.add('hide')
+  containerElement.classList.remove('hide')
+  questionContainerElement.classList.remove('hide')
+  currentQuestionsIndex = 0
+  showQuestionsContainer()
 }
 
-function nextQuestion() {}
+function showQuestionsContainer(question) {
+  showQuestions(currentQuestionsIndex)
+  questionElement.innertext = question.question
+}
 
-function selectAnswer() {}
+const questions = [
+  {
+    question: 'What is 1+1',
+    choices: [
+      { Text: '2', correct: true},
+      { text: '3', correct: false}
+    ]
+  }
+]

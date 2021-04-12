@@ -37,7 +37,7 @@ let game = {
   },
 
   start: function () {
-    const timer = setInterval(game.countdown, 1000);
+    timer = setInterval(game.countdown, 1000);
     $("#questionContainer").prepend(
       "<h2> Time Remaining: <span id= 'counter'>20</span>seconds</h2>"
     );

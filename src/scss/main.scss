@@ -8,15 +8,17 @@ body {
 .container {
   background-color: white;
   border-radius: 25%;
+  margin: 10%;
   padding: 2%;
   box-shadow: 0 0 1rem 0.5rem;
-  height: 90vh;
   width: 90vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .questionContainer {
-  background-color: black;
-  width: 100vw;
+  height: 80%;
 }
 
 .start-btn {

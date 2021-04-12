@@ -1,5 +1,6 @@
 console.log('Questions are linked!');
 
+
 let questions = [
   {
     question: "What is 1+1?",

@@ -124,9 +124,8 @@ var startButton = document.getElementById("start-btn");
 var containerElement = document.getElementById("container");
 var questionContainerElement = document.getElementById("questionContainer");
 var titleElement = document.getElementById("title");
-startButton.addEventListener("click", start); // $('#start-btn').on('click', function(){
-//   console.log('Clicked')
-// })
+var displayQuestionContainer = document.querySelector(".questionContainer");
+startButton.addEventListener("click", start);
 
 function start() {
   console.log("started");

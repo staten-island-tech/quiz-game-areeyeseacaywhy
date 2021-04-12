@@ -6,12 +6,9 @@ const startButton = document.getElementById("start-btn");
 const containerElement = document.getElementById("container");
 const questionContainerElement = document.getElementById("questionContainer");
 const titleElement = document.getElementById("title");
+const displayQuestionContainer = document.querySelector(".questionContainer")
 
 startButton.addEventListener("click", start);
-
-// $('#start-btn').on('click', function(){
-//   console.log('Clicked')
-// })
 
 function start() {
   console.log("started");

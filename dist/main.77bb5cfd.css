@@ -6,12 +6,12 @@ body {
 }
 
 .container {
-  background-color: white;
+  background-color: lightgray;
   border-radius: 25%;
   margin: 10%;
   padding: 2%;
   box-shadow: 0 0 1rem 0.5rem;
-  width: 90vw;
+  width: 60vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +21,7 @@ body {
   height: 80%;
 }
 
-.start-btn {
+.start {
   font: 1.5rem;
   font-weight: bold;
   padding: 1rem;

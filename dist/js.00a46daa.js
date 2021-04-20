@@ -160,7 +160,7 @@ var questions = [{
 var game = {
   correct: 0,
   incorrect: 0,
-  counter: 10,
+  counter: 20,
   countdown: function countdown() {
     game.counter--;
     $('#counter').html(game.counter);
@@ -173,7 +173,7 @@ var game = {
   start: function start() {
     console.log("started");
     timer = setInterval(game.countdown, 1000);
-    $('#questionContainer').prepend('<h2>Time Remaining: <span id="counter">10</span> seconds </h2>');
+    $('#questionContainer').prepend('<h2>Time Remaining: <span id="counter">20</span> seconds </h2>');
     $('#start').remove();
     containerElement.classList.remove("hide");
     questionContainerElement.classList.remove("hide");

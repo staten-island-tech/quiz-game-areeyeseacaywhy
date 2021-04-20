@@ -15,56 +15,47 @@ $('#start').on('click', function () {
 
 var questions = [
   {
-    question: "What is 1+1?",
-    answers: ["2", "3", "4", "5"],
-    correctAnswer: "2",
+    question: 'What is 1+1?',
+    answers: ['2', '3', '4', '5'],
+    correctAnswer: '2'
   },
   {
-    question: "Which is not a fruit?",
-    answers: ["Carrot", "Apple", "Orange", "Banana"],
-    correctAnswer: "Carrot",
+    question: 'Which is not a fruit?',
+    answers: ['Carrot', 'Apple', 'Orange', 'Banana'],
+    correctAnswer: 'Carrot'
   },
   {
-    question: "How many letters are in One?",
-    answers: ["1", "3", "5", "8"],
-    correctAnswer: "3",
+    question: 'How many letters are in One?',
+    answers: ['1', '3', '5', '8'],
+    correctAnswer: '3'
   },
   {
-    question: "Which of the following is a mammal?",
-    answers: ["Baboon", "Snake", "Fish", "Birds"],
-    correctAnswer: "Baboon",
+    question: 'Which of the following is a mammal?',
+    answers: ['Baboon', 'Snake', 'Fish', 'Birds'],
+    correctAnswer: 'Baboon'
   },
   {
-    question: "What is the default flavor of ice cream?",
-    answers: ["Milk", "Chocolate", "Mint", "Vanilla"],
-    correctAnswer: "Vanilla",
+    question: 'What is the default flavor of ice cream?',
+    answers: ['Milk', 'Chocolate', 'Mint', 'Vanilla'],
+    correctAnswer: 'Vanilla'
   },
   {
-    question: "How do you check if a watermelon is ripe?",
-    answers: ["Check the weight", "Look for the yellow spot", "Spank it", "All of the above",],
-    correctAnswer: "All of the above",
+    question: 'How do you check if a watermelon is ripe?',
+    answers: ['Check the weight', 'Look for the yellow spot', 'Spank it', 'All of the above',],
+    correctAnswer: 'All of the above'
   },
   {
-    question: "What is H2O?",
-    answers: ["Water", "Oxygen", "Hydrogen", "Carbon Dioxide"],
-    correctAnswer: "Water",
-  },
+    question: 'What is H2O?',
+    answers: ['Water', 'Oxygen', 'Hydrogen', 'Carbon Dioxide'],
+    correctAnswer: 'Water'
+  }
 ];
 
-// var score = 0;
-// for(var a= 0; a < questions.length; a++) {
-//   var response = $(this)
-//   if(response == questions[i].correctAnswer){
-//     score++
-//   } else {
-//     console.log('Wrong!')
-//   }
-// }
 
 var game = {
   correct: 0,
   incorrect: 0,
-  counter: 20,
+  counter: 10,
   countdown: function () {
       game.counter--;
       $('#counter').html(game.counter);
@@ -77,7 +68,7 @@ var game = {
   start: function () {
     console.log("started");
     timer = setInterval(game.countdown, 1000);
-    $('#questionContainer').prepend('<h2>Time Remaining: <span id="counter">20</span> seconds </h2>');
+    $('#questionContainer').prepend('<h2>Time Remaining: <span id="counter">10</span> seconds </h2>');
     $('#start').remove();
     containerElement.classList.remove("hide");
     questionContainerElement.classList.remove("hide");
@@ -85,8 +76,7 @@ var game = {
     for (var i = 0; i < questions.length; i++) {
       $('#questionContainer').append("<h2>" + questions[i].question + "</h2>");
       for (var j = 0; j < questions[i].answers.length; j++) {
-        $('#questionContainer').append(
-          "<h2><input type='radio' name='questions-" + i + "'value='" + questions[i].answers[j] + "'>" + questions[i].answers[j]);
+        $('#questionContainer').append("<h2><input type='radio' name='question-" + i + "'value='" + questions[i].answers[j] + "'>" + questions[i].answers[j]);
       }
     }
     // var startbtn = document.getElementById("start");
@@ -143,7 +133,7 @@ var game = {
             game.incorrect++;
         }
     });
-    $.each($('input [name="question-6"]:checked'), 
+    $.each($('input[name="question-6"]:checked'),
     function () {
         if ($(this).val() == questions[6].correctAnswer) {
             game.correct++;
@@ -165,10 +155,7 @@ var game = {
         "<h3>Incorrect Answers:" +this.incorrect+ "</h3>"
       );
       $('#questionContainer').append(
-        "<h3>Unanswered Questions:" +(questions.length - (this.correct + this.incorrect)) +"</h3>"
+        "<h3>Unanswered:" + (questions.length - (this.incorrect + this.correct)) + "</h3>"
       );
-      // $('#questionContainer').append("<h3> You got " + score + '/'+ (questions.length) +"</h3>");
     },
   };
-
-

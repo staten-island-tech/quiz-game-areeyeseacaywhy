@@ -1,6 +1,6 @@
 console.log("Connected");
 
-// import {questions} from "./questions"
+import {questions} from "./questions"
 
 const containerElement = document.getElementById("container");
 const questionContainerElement = document.getElementById("questionContainer");
@@ -13,44 +13,45 @@ $('#start').on('click', function () {
   game.start();
 });
 
-var questions = [
-  {
-    question: 'What is 1+1?',
-    answers: ['2', '3', '4', '5'],
-    correctAnswer: '2'
-  },
-  {
-    question: 'Which is not a fruit?',
-    answers: ['Carrot', 'Apple', 'Orange', 'Banana'],
-    correctAnswer: 'Carrot'
-  },
-  {
-    question: 'How many letters are in One?',
-    answers: ['1', '3', '5', '8'],
-    correctAnswer: '3'
-  },
-  {
-    question: 'Which of the following is a mammal?',
-    answers: ['Baboon', 'Snake', 'Fish', 'Birds'],
-    correctAnswer: 'Baboon'
-  },
-  {
-    question: 'What is the default flavor of ice cream?',
-    answers: ['Milk', 'Chocolate', 'Mint', 'Vanilla'],
-    correctAnswer: 'Vanilla'
-  },
-  {
-    question: 'How do you check if a watermelon is ripe?',
-    answers: ['Check the weight', 'Look for the yellow spot', 'Spank it', 'All of the above',],
-    correctAnswer: 'All of the above'
-  },
-  {
-    question: 'What is H2O?',
-    answers: ['Water', 'Oxygen', 'Hydrogen', 'Carbon Dioxide'],
-    correctAnswer: 'Water'
-  }
-];
+// var questions = [
+//   {
+//     question: 'What is 1+1?',
+//     answers: ['2', '3', '4', '5'],
+//     correctAnswer: '2'
+//   },
+//   {
+//     question: 'Which is not a fruit?',
+//     answers: ['Carrot', 'Apple', 'Orange', 'Banana'],
+//     correctAnswer: 'Carrot'
+//   },
+//   {
+//     question: 'How many letters are in One?',
+//     answers: ['1', '3', '5', '8'],
+//     correctAnswer: '3'
+//   },
+//   {
+//     question: 'Which of the following is a mammal?',
+//     answers: ['Baboon', 'Snake', 'Fish', 'Birds'],
+//     correctAnswer: 'Baboon'
+//   },
+//   {
+//     question: 'What is the default flavor of ice cream?',
+//     answers: ['Milk', 'Chocolate', 'Mint', 'Vanilla'],
+//     correctAnswer: 'Vanilla'
+//   },
+//   {
+//     question: 'How do you check if a watermelon is ripe?',
+//     answers: ['Check the weight', 'Look for the yellow spot', 'Spank it', 'All of the above',],
+//     correctAnswer: 'All of the above'
+//   },
+//   {
+//     question: 'What is H2O?',
+//     answers: ['Water', 'Oxygen', 'Hydrogen', 'Carbon Dioxide'],
+//     correctAnswer: 'Water'
+//   }
+// ];
 
+var timer;
 
 var game = {
   correct: 0,
@@ -66,7 +67,7 @@ var game = {
   },
 
   start: function () {
-    console.log("started");
+    console.log("Started");
     timer = setInterval(game.countdown, 1000);
     $('#questionContainer').prepend('<h2>Time Remaining: <span id="counter">20</span> seconds </h2>');
     $('#start').remove();
@@ -84,6 +85,7 @@ var game = {
     //appends each question with radio button with answer, value within button
   },
 
+  
   done: function () {
     $.each($('input[name="question-0"]:checked'),
     function () {

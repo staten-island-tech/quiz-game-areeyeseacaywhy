@@ -117,17 +117,14 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"js/index.js":[function(require,module,exports) {
-console.log("Connected"); // import {questions} from "./questions"
+})({"js/questions.js":[function(require,module,exports) {
+"use strict";
 
-var containerElement = document.getElementById("container");
-var questionContainerElement = document.getElementById("questionContainer");
-var titleElement = document.getElementById("title");
-var startbtnElement = document.getElementById("start"); // startButton.addEventListener("click", start);
-
-$('#start').on('click', function () {
-  game.start();
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
+exports.questions = void 0;
+console.log('Questions are linked!');
 var questions = [{
   question: 'What is 1+1?',
   answers: ['2', '3', '4', '5'],
@@ -157,6 +154,59 @@ var questions = [{
   answers: ['Water', 'Oxygen', 'Hydrogen', 'Carbon Dioxide'],
   correctAnswer: 'Water'
 }];
+exports.questions = questions;
+},{}],"js/index.js":[function(require,module,exports) {
+"use strict";
+
+var _questions = require("./questions");
+
+console.log("Connected");
+var containerElement = document.getElementById("container");
+var questionContainerElement = document.getElementById("questionContainer");
+var titleElement = document.getElementById("title");
+var startbtnElement = document.getElementById("start"); // startButton.addEventListener("click", start);
+
+$('#start').on('click', function () {
+  game.start();
+}); // var questions = [
+//   {
+//     question: 'What is 1+1?',
+//     answers: ['2', '3', '4', '5'],
+//     correctAnswer: '2'
+//   },
+//   {
+//     question: 'Which is not a fruit?',
+//     answers: ['Carrot', 'Apple', 'Orange', 'Banana'],
+//     correctAnswer: 'Carrot'
+//   },
+//   {
+//     question: 'How many letters are in One?',
+//     answers: ['1', '3', '5', '8'],
+//     correctAnswer: '3'
+//   },
+//   {
+//     question: 'Which of the following is a mammal?',
+//     answers: ['Baboon', 'Snake', 'Fish', 'Birds'],
+//     correctAnswer: 'Baboon'
+//   },
+//   {
+//     question: 'What is the default flavor of ice cream?',
+//     answers: ['Milk', 'Chocolate', 'Mint', 'Vanilla'],
+//     correctAnswer: 'Vanilla'
+//   },
+//   {
+//     question: 'How do you check if a watermelon is ripe?',
+//     answers: ['Check the weight', 'Look for the yellow spot', 'Spank it', 'All of the above',],
+//     correctAnswer: 'All of the above'
+//   },
+//   {
+//     question: 'What is H2O?',
+//     answers: ['Water', 'Oxygen', 'Hydrogen', 'Carbon Dioxide'],
+//     correctAnswer: 'Water'
+//   }
+// ];
+
+var timer;
 var game = {
   correct: 0,
   incorrect: 0,
@@ -171,7 +221,7 @@ var game = {
     }
   },
   start: function start() {
-    console.log("started");
+    console.log("Started");
     timer = setInterval(game.countdown, 1000);
     $('#questionContainer').prepend('<h2>Time Remaining: <span id="counter">20</span> seconds </h2>');
     $('#start').remove();
@@ -179,11 +229,11 @@ var game = {
     questionContainerElement.classList.remove("hide");
     titleElement.classList.add("hide");
 
-    for (var i = 0; i < questions.length; i++) {
-      $('#questionContainer').append("<h2>" + questions[i].question + "</h2>");
+    for (var i = 0; i < _questions.questions.length; i++) {
+      $('#questionContainer').append("<h2>" + _questions.questions[i].question + "</h2>");
 
-      for (var j = 0; j < questions[i].answers.length; j++) {
-        $('#questionContainer').append("<h2><input type='radio' name='question-" + i + "'value='" + questions[i].answers[j] + "'>" + questions[i].answers[j]);
+      for (var j = 0; j < _questions.questions[i].answers.length; j++) {
+        $('#questionContainer').append("<h2><input type='radio' name='question-" + i + "'value='" + _questions.questions[i].answers[j] + "'>" + _questions.questions[i].answers[j]);
       }
     } // var startbtn = document.getElementById("start");
     // startbtn.parentNode.removeChild(startbtn);
@@ -192,49 +242,49 @@ var game = {
   },
   done: function done() {
     $.each($('input[name="question-0"]:checked'), function () {
-      if ($(this).val() == questions[0].correctAnswer) {
+      if ($(this).val() == _questions.questions[0].correctAnswer) {
         game.correct++;
       } else {
         game.incorrect++;
       }
     });
     $.each($('input[name="question-1"]:checked'), function () {
-      if ($(this).val() == questions[1].correctAnswer) {
+      if ($(this).val() == _questions.questions[1].correctAnswer) {
         game.correct++;
       } else {
         game.incorrect++;
       }
     });
     $.each($('input[name="question-2"]:checked'), function () {
-      if ($(this).val() == questions[2].correctAnswer) {
+      if ($(this).val() == _questions.questions[2].correctAnswer) {
         game.correct++;
       } else {
         game.incorrect++;
       }
     });
     $.each($('input[name="question-3"]:checked'), function () {
-      if ($(this).val() == questions[3].correctAnswer) {
+      if ($(this).val() == _questions.questions[3].correctAnswer) {
         game.correct++;
       } else {
         game.incorrect++;
       }
     });
     $.each($('input[name="question-4"]:checked'), function () {
-      if ($(this).val() == questions[4].correctAnswer) {
+      if ($(this).val() == _questions.questions[4].correctAnswer) {
         game.correct++;
       } else {
         game.incorrect++;
       }
     });
     $.each($('input[name="question-5"]:checked'), function () {
-      if ($(this).val() == questions[5].correctAnswer) {
+      if ($(this).val() == _questions.questions[5].correctAnswer) {
         game.correct++;
       } else {
         game.incorrect++;
       }
     });
     $.each($('input[name="question-6"]:checked'), function () {
-      if ($(this).val() == questions[6].correctAnswer) {
+      if ($(this).val() == _questions.questions[6].correctAnswer) {
         game.correct++;
       } else {
         game.incorrect++;
@@ -248,10 +298,10 @@ var game = {
     $('#questionContainer').append("<h3>Quiz Over!</h3>");
     $('#questionContainer').append("<h3>Correct Answers:" + this.correct + "</h3>");
     $('#questionContainer').append("<h3>Incorrect Answers:" + this.incorrect + "</h3>");
-    $('#questionContainer').append("<h3>Unanswered:" + (questions.length - (this.incorrect + this.correct)) + "</h3>");
+    $('#questionContainer').append("<h3>Unanswered:" + (_questions.questions.length - (this.incorrect + this.correct)) + "</h3>");
   }
 };
-},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./questions":"js/questions.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

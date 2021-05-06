@@ -5,30 +5,25 @@ body {
   align-items: center;
 }
 
-.container {
+.quiz {
   background-color: lightgray;
   border-radius: 25%;
-  margin: 10%;
-  padding: 2%;
+  padding: 5%;
   box-shadow: 0 0 1rem 0.5rem;
-  width: 60vw;
+  height: 60vh;
   display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: center;
+  flex-direction: column;
 }
 
-.questionContainer {
-  height: 80%;
+.score {
+  padding: 1%;
+  background-color: white;
 }
 
-.start {
-  font: 1.5rem;
-  font-weight: bold;
-  padding: 1rem;
-}
-
-.hide {
-  display: none;
+.end {
+  padding: 1%;
 }
 
 /*# sourceMappingURL=/main.77bb5cfd.css.map */
